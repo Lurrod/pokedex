@@ -34,27 +34,32 @@ body {
 }
 
 .screen {
-    background-color: #33ccff;
     flex-grow: 0.5;
     border-radius: 15px;
     padding: 10px;
     color: #fff;
     text-align: center;
+    background-color: #a7b1b7; /* Couleur d'arrière-plan (gris typique de l'écran Game Boy) */
+    border: 12px solid #4d4d4d; /* Bordure de l'écran (gris foncé pour le cadre) */
+    border-radius: 12px; /* Coins arrondis */
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .pokemon {
     background-size: contain;
     background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
+    width: 230px;
+    height: 230px;
 }
 
 .pokemon-image{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     filter: drop-shadow(0 0 0.75rem crimson);
     transition: .5s;
 }
@@ -99,6 +104,7 @@ body {
     display: flex;
     justify-content: space-around;
     padding-top: 20px;
+    margin-bottom: 20px;
 }
 
 .name {
@@ -109,54 +115,64 @@ body {
     border: 2px solid #000;
 }
 
-.d-pad::before,
-.d-pad::after {
-    content: '';
-    position: absolute;
-    background-color: #333;
+.d-pad {
+    width: 80px;
+    height: 80px; 
+    position: relative;
+}
+
+.left, .right, .up, .down {
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
-    border: 2px solid #000;
-}
-
-.d-pad::before {
-    width: 20px;
-    height: 60px;
-}
-
-.d-pad::after {
-    width: 60px;
-    height: 20px;
-}
-
-.d-pad .center {
+    background-color: #545454;
+    color: white;
+    font-size: 18px;
+    border: 2px solid black;
     position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: #555;
-    border-radius: 5px;
+}
+
+.up {
+    top: 10px;
+    left: 35px;
+}
+
+.left {
+    top: 35px;
+    left: 10px;
+}
+
+.right {
+    top: 35px;
+    left: 60px;
+}
+
+.down {
+    top: 60px;
+    left: 35px;
+}
+
+.center {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #545454;
+    border: 2px solid black;
     z-index: 1;
 }
 
-.d-pad .up,
-.d-pad .down,
-.d-pad .left,
-.d-pad .right {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: #555;
-    border-radius: 5px;
-    z-index: 2;
-}
 
 .right-panel {
-    margin-top: 110px;
+    margin-top: 60px;
     background-color: #ff6666;
     flex: 1.5;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 70%;
+    height: 80%;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     position: relative;

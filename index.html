@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
     <link rel="stylesheet" href="styles.css">
-   
 </head>
 <body>
     <div class="pokedex">
@@ -13,46 +12,43 @@
         <div class="left-panel">
             <div class="screen">
                 <div class="pokemon">
-                    <img class="pokemon-image" src="pokemon.png">
+                    <img class="pokemon-image" src="" alt="Image du Pokémon">
                 </div>
             </div>
             <div class="buttons">
-                <div class="big-button"></div>
-                <div class="button green"></div>
-                <div class="button orange"></div>
+                <button class="big-button"></button> 
+                <button class="button green"></button>
+                <button class="button orange"></button>
             </div>
             <div class="button-down">
-                <div class="buttons name"> Rayquaza</div>
-                <div class="buttons d-pad">
-                    <div class="up"></div>
-                    <div class="down"></div>
-                    <div class="left"></div>
-                    <div class="right"></div>
-                    <div class="center"></div>
-                </div>                
+                <div class="buttons name">
+                    <span class="pokemon-name"></span>
+                </div>
+                <div class="d-pad">
+                    <button class="up"></button>
+                    <button class="left"></button>
+                    <button class="center"></button>
+                    <button class="right"></button>
+                    <button class="down"></button>
+                </div>                                            
             </div>
         </div>
 
         <!-- Partie droite -->
-         
         <div class="right-panel">
             <div class="controls">
                 <div class="button-top">
-                    <img src="type.png">
-                    <div class="button name-top">Rayquaza</div>
+                    <div class="type-icons"></div>
+                    <div class="button name-top">
+                        <span class="pokemon-name"></span>
+                    </div>
                 </div>
             </div>
              <div class="description">
-                <ul>
-                    <li>PV : <span>90</span></li>
-                    <li>Attaque : <span>95</span></li>
-                    <li>Defense : <span>110</span></li>
-                    <li>Attaque spéciale : <span>120</span></li>
-                    <li>Defense spéciale : <span>455</span></li>
-                    <li>Vitesse : <span>105</span></li>    
-                </ul>
+                <ul class="stats-list"></ul>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
