@@ -30,6 +30,7 @@ body {
     border-top-left-radius: 15px;
     border-top-right-radius:15px;
     border-bottom-left-radius: 15px;
+    border: 2px solid #000;
 }
 
 .screen {
@@ -76,12 +77,14 @@ body {
     height: 50px;
     background-color: #4d88ff;
     border-radius: 50%;
+    border: 2px solid #000;
 }
 
 .button {
     width: 30px;
     height: 15px;
     border-radius: 5px;
+    border: 2px solid #000;
 }
 
 .button.green {
@@ -99,10 +102,11 @@ body {
 }
 
 .name {
-    width: 100px;
+    width: 80px;
     padding: 15px ;
     background-color: #ffdd00;
     border-radius: 5px;
+    border: 2px solid #000;
 }
 
 .d-pad::before,
@@ -111,6 +115,7 @@ body {
     position: absolute;
     background-color: #333;
     border-radius: 5px;
+    border: 2px solid #000;
 }
 
 .d-pad::before {
@@ -155,6 +160,7 @@ body {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     position: relative;
+    border-left: 5px solid #000;
 }
 
 .right-panel::before {
@@ -175,6 +181,7 @@ body {
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
+    
 }
 
 img{
@@ -183,11 +190,12 @@ img{
 }
 
 .name-top{
-    width: 100px;
+    width: 80px;
     padding: 15px ;
     background-color: #ffdd00;
     border-radius: 5px;
     text-align: center;
+    border: 2px solid #000;
 }
 
 .description{
