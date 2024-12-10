@@ -33,10 +33,10 @@ body {
     border: 2px solid #000;
 }
 
-.screen {
-    background-color: #a7b1b7; /* Couleur d'arrière-plan (gris typique de l'écran Game Boy) */
-    border: 16px solid #4d4d4d; /* Bordure de l'écran (gris foncé pour le cadre) */
-    border-radius: 12px; /* Coins arrondis */
+.screen{
+    background-color: #a7b1b7;
+    border: 16px solid #4d4d4d;
+    border-radius: 12px;
     flex-grow: 0.5;
     border-radius: 15px;
     padding: 10px;
@@ -45,6 +45,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .pokemon {
@@ -217,28 +218,32 @@ img{
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2);
 }
 
-.description{
+.screen-right{
+    height: 220px;
     border: 2px solid black;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 20px;
+    background-color: #a7b1b7;
+    border: 16px solid #4d4d4d;
+    border-radius: 12px;
 }
 
-.description ul {
+.screen-right ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.description li {
+.screen-right li {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-.description span {
+.screen-right span {
     font-weight: bold;
     color: #333;
 }
