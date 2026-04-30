@@ -1,58 +1,100 @@
-# Pokedex :
-Hello everyone this is our pokedex.
-Feel free to explore and check out the work we've done! Don't hesitate to leave feedback or suggestions.
+# Pokédex // v3.0
 
-# Usage :
-- Explore the pokedex to have knowledges and informations about pokemon.
- ## **Contributing :**
-We welcome contributions to this project! Here’s how you can help:
-### 1. **Fork the Repository**
-   - Click the "Fork" button at the top right of the repository page to create your copy of the project.
+Pokédex futuriste — interface HUD avec hologramme, scanlines, particules néon et palette dynamique selon le type du Pokémon affiché. Propulsé par [PokéAPI](https://pokeapi.co).
 
-### 2. **Clone Your Fork**
-   - Clone your forked repository to your local machine using:
-     ```bash
-     git clone https://github.com/your-username/your-repository.git
-     ```
+## Stack
 
-### 3. **Create a New Branch**
-   - Before making any changes, create a new branch for your feature or bug fix:
-     ```bash
-     git checkout -b feature/your-feature-name
-     ```
+- ⚡ **Vite 5** + **React 18** + **TypeScript** strict
+- 🎨 **Tailwind CSS** + **Framer Motion** (animations) + Canvas (particules)
+- 🛡️ **Zod** pour valider les réponses API
+- 🧪 **Vitest** + **Testing Library**
+- 🔤 Polices : **Orbitron** (display) + **JetBrains Mono** (chiffres)
+- 🌐 PokéAPI — 1025 Pokémon, noms et descriptions en français
 
-### 4. **Make Your Changes**
-   - Edit the code and add your improvements or fixes.
+## Démarrer
 
-### 5. **Commit Your Changes**
-   - Save your changes and commit them with a descriptive message:
-     ```bash
-     git commit -m "Add a brief description of your changes"
-     ```
+```bash
+npm install
+npm run dev
+```
 
-### 6. **Push to Your Fork**
-   - Push your changes back to your forked repository:
-     ```bash
-     git push origin feature/your-feature-name
-     ```
+Ouvre http://localhost:5173.
 
-### 7. **Open a Pull Request**
-   - Go to the original repository and click on the "Pull Requests" tab.
-   - Click on the "New Pull Request" button and select your branch from the dropdown.
-   - Provide a description of your changes and submit the pull request.
+## Scripts
 
-### Api used
-- Pokéapi
-  
-### Additional Notes
-- Make sure to write clear commit messages and adhere to the coding style used in the project.
-- If you’re unsure about anything, feel free to open an issue to discuss it before making changes.
+| Commande | Description |
+|---|---|
+| `npm run dev` | Serveur de dev (HMR) |
+| `npm run build` | Build de production (`dist/`) |
+| `npm run preview` | Sert le build local |
+| `npm test` | Tests unitaires (Vitest) |
+| `npm run test:watch` | Tests en mode watch |
+| `npm run typecheck` | Vérification TypeScript |
 
-Thank you for considering contributing to this project!
+## Fonctionnalités
 
-- ### License
-- MIT
-- ### Contact
-- If you have any questions or feedback about the project, reach out to us:
+- 🔍 Recherche par **nom** (anglais) ou **numéro**
+- ⬅️ ➡️ Navigation : clavier (`←` / `→`) ou boutons HUD
+- 🎲 Pokémon aléatoire (`Espace` ou bouton « Aléatoire »)
+- 🔊 Cri du Pokémon au clic
+- 📱 Responsive (mobile / desktop)
+- ♿ A11y : `aria-label`, `role="status"`, focus visible
 
-- GitHub: (https://github.com/aminetxt) (https://github.com/Lurrod) (https://github.com/benhartdev)
+## Style HUD futuriste
+
+- Grille perspective animée + particules néon scintillantes
+- Hologramme central avec **3 anneaux concentriques** rotatifs (sens et vitesses différents), crosshair, scanline verticale, ombre de base
+- Panneaux glassmorphism (`backdrop-blur` + bordure cyan + coins biseautés)
+- Header HUD avec LED de statut (online / scanning / error)
+- Teinte globale qui s'adapte au **type principal** du Pokémon
+
+## Animations
+
+- 🎬 Entrée en stagger sur tous les panneaux
+- ✍️ **Typewriter** sur le nom et la description
+- 🔢 **Compteurs animés** (ID, taille, poids, valeurs de stats) avec easing cubique
+- 📊 Barres de stats avec **shimmer** glissant + glow néon
+- 💎 Badges de type avec shimmer et hover spring
+- 🌊 Beam de scan horizontal qui balaie le panneau du nom
+- 📡 Scanline verticale qui balaie l'hologramme
+- 🎵 Equalizer animé sur le bouton « Jouer le cri »
+- 🔘 Boutons : hover/tap spring + shimmer + glow
+
+## Structure
+
+```
+src/
+├── api/                    # Client PokéAPI
+│   ├── pokeapi.ts          # fetch + cache + buildPokemon
+│   └── schemas.ts          # schémas Zod + type Pokemon
+├── components/
+│   ├── Pokedex.tsx         # composition + layout principal
+│   ├── HudHeader.tsx       # barre supérieure (logo, statut)
+│   ├── Hologram.tsx        # affichage du Pokémon (anneaux, scan)
+│   ├── StatsPanel.tsx      # taille, poids, barres de stats
+│   ├── StatBar.tsx         # une barre animée
+│   ├── TypeBadge.tsx       # badge de type avec glow
+│   ├── NavControls.tsx     # boutons prev / random / next
+│   ├── SearchBar.tsx       # input terminal
+│   ├── ParticleBackground.tsx  # canvas particules néon
+│   ├── GridBackground.tsx  # grille perspective animée
+│   ├── CornerBrackets.tsx  # crochets aux 4 coins
+│   └── LoadingIndicator.tsx
+├── hooks/
+│   ├── usePokemon.ts       # fetch + loading/error
+│   ├── useKeyboardNav.ts   # ← / → / espace
+│   ├── useTypewriter.ts    # texte typé caractère par caractère
+│   └── useAnimatedCounter.ts # compteur avec easing
+├── utils/
+│   ├── typeColors.ts       # couleurs + labels FR par type
+│   └── format.ts           # ID, taille, poids, clamp
+└── __tests__/              # tests unitaires (Vitest)
+```
+
+## Tests
+
+17 tests unitaires couvrant :
+- formatage (ID, taille, poids, clamp avec wrap min/max)
+- couleurs et labels par type (avec fallback)
+- parsing API (`buildPokemon` : stats, sprites, nom FR, flavor text, ordre des types)
+- composant `TypeBadge`
